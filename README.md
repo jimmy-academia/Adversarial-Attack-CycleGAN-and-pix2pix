@@ -20,35 +20,34 @@ git clone https://github.com/jimmy-academia/Adversarial-Attack-CycleGAN-and-pix2
 ```
 * clone the CycleGAN-pix2pix or pix2pixHD repo and move the corresponding files to the correct place.
 
-for CycleGAN:
+for CycleGAN or pix2pix:
 ```
 git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
 cd Adversarial-Attack-CycleGAN-and-pix2pix
-mv attack_cyc.py ../pytorch-CycleGAN-and-pix2pix
-mv vesaryfunc_cyc.py ../pytorch-CycleGAN-and-pix2pix
-```
-or for pix2pix
-```
-git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
-cd Adversarial-Attack-CycleGAN-and-pix2pix
-mv attack_pix.py ../pytorch-CycleGAN-and-pix2pix
-mv vesaryfunc_pix.py ../pytorch-CycleGAN-and-pix2pix
+cp -v attack.py vesaryfunc.py ../pytorch-CycleGAN-and-pix2pix
 ```
 or for pix2pixHD
 ```
-git clone https://github.com/NVIDIA/pix2pixHD.git
-cd Adversarial-Attack-CycleGAN-and-pix2pix
-mv attack_pphd.py ../pix2pixHD
-mv vesaryfunc_pphd.py ../pix2pixHD
+cp -v attack.py vesaryfunc.py ../pix2pixHD
 ```
 * prepare the CelebaHQ and mask datasets
-download the datasets.
+download and prepare the datasets.
 ```
 bash download.sh
+python prepare_dataset.py --<type> [cyc|pix|pixhd]
 ```
-Run one of the following to produce datasets for each models. 
+optional arguments for prepare_dataset.py includes:
 ```
-python prepare_cyclegan_dataset.py
-python prepare_pix2pix_dataset.py
-python prepare_pix2pixhd_dataset.py
+    --size [default: 256]
+    --epsilon [default: 0.2]
+    --
 ```
+
+### Usage
+```
+python attack.py --<type> [cyc|pix|pixhd]
+```
+
+
+
+
