@@ -30,24 +30,44 @@ or for pix2pixHD
 ```
 cp -v attack.py vesaryfunc.py ../pix2pixHD
 ```
+
+### Prepare Model:
+
+#### dataset preparation
 * prepare the CelebaHQ and mask datasets
 download and prepare the datasets.
 ```
 bash download.sh
-python prepare_dataset.py --<type> [cyc|pix|pixhd]
+python prepare_dataset.py --modeltype [cyc|pix|pixhd] --size [default: 256] --datatype [default: Smile | Blond | Bald | Glass | Blond-pix | Blond-HD]
 ```
-optional arguments for prepare_dataset.py includes:
+than move resulting dataset to `datasets` directory in the correct location, for example:
 ```
-    --size [default: 256]
-    --epsilon [default: 0.2]
-    --
+mv smilehq ../pytorch-CycleGAN-and-pix2pix/datasets
+```
+refer to [customizations](docs/customize.md) for preparation details.
+
+#### training
+
+Follow the original training methods in CycleGAN-pix2pix or pix2pixHD repo, e.g.:
+```
+python train.py --dataroot  
 ```
 
-### Usage
+#### pretrained weights
+
+Alternatively, you can use pretrained weights by:
 ```
-python attack.py --<type> [cyc|pix|pixhd]
+bash download_weights.sh
+```
+Then move the corresponding folders to the correct location, e.g.:
+```
+mkdir -p ../pytorch-CycleGAN-and-pix2pix/checkpoints/
+mv weights/smile_cyclegan ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 ```
 
+### Attack:
+
+python attack.py --type [cyc|pix|pixhd]
 
 
 
