@@ -7,10 +7,10 @@ The code was written by [Chin-Yuan Yeh](https://github.com/jimmy-academia).
 
 This PyTorch implementation is to be used alongside the [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) repository or the [pix2pixHD](https://github.com/NVIDIA/pix2pixHD) repository.
 
-## Getting Started
-
 ### dataset specifics
 This work uses CelebA-HQ and CelebAMask-HQ. The datasets can be found in this [google drive link](https://drive.google.com/file/d/1badu11NqxGf6qM3PTTooQDJvQbejgbTv/view) provided by this repository [CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ). (In case google drive link fails, backup version can also be found in [downlable repository](https://github.com/jimmy-academia/downloadable/releases/tag/dset.celeba)
+
+## Getting Started
 
 ### Installation
 
@@ -33,8 +33,8 @@ cp -v attack.py vesaryfunc.py ../pix2pixHD
 
 ### Prepare Model:
 
-#### dataset preparation
-* prepare the CelebaHQ and mask datasets
+#### * Dataset Preparation
+prepare the CelebaHQ and mask datasets
 download and prepare the datasets.
 ```
 bash download.sh
@@ -46,14 +46,14 @@ mv smilehq ../pytorch-CycleGAN-and-pix2pix/datasets
 ```
 refer to [customizations](docs/customize.md) for preparation details.
 
-#### training
+#### * Training
 
 Follow the original training methods in CycleGAN-pix2pix or pix2pixHD repo, e.g.:
 ```
 python train.py --dataroot  
 ```
 
-#### pretrained weights
+#### * Pretrained Weights
 
 Alternatively, you can use pretrained weights by:
 ```
