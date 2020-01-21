@@ -16,6 +16,7 @@ mkdir celebafiles
 mv CelebAMask-HQ/CelebA-HQ-img celebafiles/hqimages
 mkdir celebafiles/hairmasks
 mv CelebAMask-HQ/CelebAMask-HQ-mask-anno/*/*hair.png celebafiles/hairmasks/
+
 mkdir celebafiles/othermasks
 mv CelebAMask-HQ/CelebAMask-HQ-mask-anno/* celebafiles/othermasks
 mkdir celebafiles/attr
