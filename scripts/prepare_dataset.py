@@ -87,7 +87,7 @@ def combine_for_pix()
 def main:
     parser = argparse.ArgumentParser()
     parser.add_argument('--imagesize', type=int, default=256, help='image size')
-    parser.add_argument('--splitdir', type=str, default='split', help='directory for trainlist.txt and testlist.txt')
+    parser.add_argument('--splitdir', type=str, default='scripts', help='directory for trainlist.txt and testlist.txt')
     parser.add_argument('--model', type=str, default='Smile', help='prepare dataset for predefined modeltypes or Customize with \'Custom\' option [ Smile | Blond | Bald | Glass | Blond-pix | Blond-HD | Custom ]')
     parser.add_argument('--attr1', type=str, default=None, help='attribute 1 for custom dataset')
     parser.add_argument('--attr2', type=str, default=None, help='attribute 2 for custom dataset')

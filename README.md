@@ -8,7 +8,7 @@ The code was written by [Chin-Yuan Yeh](https://github.com/jimmy-academia).
 This PyTorch implementation is to be used alongside the [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) repository or the [pix2pixHD](https://github.com/NVIDIA/pix2pixHD) repository.
 
 ### dataset specifics
-This work uses CelebA-HQ and CelebAMask-HQ. The datasets can be found in this [google drive link](https://drive.google.com/file/d/1badu11NqxGf6qM3PTTooQDJvQbejgbTv/view) provided by this repository [CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ). (In case google drive link fails, backup version can also be found in [downlable repository](https://github.com/jimmy-academia/downloadable/releases/tag/dset.celeba)
+This work uses CelebA-HQ and CelebAMask-HQ. The datasets can be found in this [google drive link](https://drive.google.com/file/d/1badu11NqxGf6qM3PTTooQDJvQbejgbTv/view) provided by this repository [CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ). (In case google drive link fails, backup version can also be found [here](https://github.com/jimmy-academia/downloadable/releases/tag/dset.celeba))
 
 ## Getting Started
 
@@ -28,41 +28,49 @@ cp -v attack.py vesaryfunc.py ../pytorch-CycleGAN-and-pix2pix
 ```
 or for pix2pixHD
 ```
+git clone https://github.com/NVIDIA/pix2pixHD.git
+cd Adversarial-Attack-CycleGAN-and-pix2pix
 cp -v attack.py vesaryfunc.py ../pix2pixHD
 ```
 
-### Prepare Model:
+### Prepare Your Own Model:
 
-#### * Dataset Preparation
-prepare the CelebaHQ and mask datasets
-download and prepare the datasets.
+* download and prepare the CelebaHQ and mask datasets
 ```
-bash download.sh
-python prepare_dataset.py --modeltype [cyc|pix|pixhd] --size [default: 256] --datatype [default: Smile | Blond | Bald | Glass | Blond-pix | Blond-HD]
+bash scripts/download_dataset.sh
+python scripts/prepare_dataset.py --imagesize [default: 256] --datatype [default: Smile | Blond | Bald | Glass | Blond-pix | Blond-HD | Custom ]
 ```
-than move resulting dataset to `datasets` directory in the correct location, for example:
+* than move resulting dataset to the correct location, ex:
 ```
 mv smilehq ../pytorch-CycleGAN-and-pix2pix/datasets
 ```
-refer to [customizations](docs/customize.md) for preparation details.
+> refer to [customizations](docs/customize.md) for preparation details.
 
-#### * Training
+* train the model with original CycleGAN-pix2pix or pix2pixHD repository:
+```
+cd ../pytorch-CycleGAN-and-pix2pix
+python train.py --dataroot  datasets/smilehq --name smile --model cycle_gan
+```
+or
+```
+python train.py --dataroot  datasets/black_masked --name black_masked --model pix2pix
+```
+and 
+```
+python train.py --dataroot  datasets/masked_blond --name masked_blond --model pix2pix
+```
 
-Follow the original training methods in CycleGAN-pix2pix or pix2pixHD repo, e.g.:
-```
-python train.py --dataroot  
-```
 
-#### * Pretrained Weights
+### Use Pretrained Weights
 
-Alternatively, you can use pretrained weights by:
+* Alternatively, you can use pretrained weights by:
 ```
-bash download_weights.sh
+bash script/download_weights.sh
 ```
-Then move the corresponding folders to the correct location, e.g.:
+* then move the corresponding folders to the correct location, e.g.:
 ```
 mkdir -p ../pytorch-CycleGAN-and-pix2pix/checkpoints/
-mv weights/smile_cyclegan ../pytorch-CycleGAN-and-pix2pix/checkpoints/
+mv weights/smile ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 ```
 
 ### Attack:
