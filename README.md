@@ -51,15 +51,16 @@ mv smilehq ../pytorch-CycleGAN-and-pix2pix/datasets
 cd ../pytorch-CycleGAN-and-pix2pix
 python train.py --dataroot  datasets/smilehq --name smile --model cycle_gan
 ```
-or
 ```
 python train.py --dataroot  datasets/black_masked --name black_masked --model pix2pix
-```
-and 
-```
 python train.py --dataroot  datasets/masked_blond --name masked_blond --model pix2pix
 ```
+(pix2pixHD)
+```
+python train.py --dataroot datasets/black_masked --name black_masked --resize_or_crop scale_width_and_crop --loadSize 572 --fineSize 512 --label_nc 0 --no_instance 
 
+python train.py --dataroot datasets/masked_blond --name masked_blond --resize_or_crop scale_width_and_crop --loadSize 572 --fineSize 512 --label_nc 0 --no_instance 
+```
 
 ### Use Pretrained Weights
 
