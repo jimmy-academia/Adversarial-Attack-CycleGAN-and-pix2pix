@@ -73,17 +73,22 @@ bash script/download_weights.sh
 mkdir -p ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 mv weights/smile ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 ```
-* also copy the running example image if you didn't download the dataset, ex:
+* also copy the dataset directory for single running example if you didn't download the celebahq dataset, ex:
 ```
-cp -v running_example.png ../pytorch-CycleGAN-and-pix2pix
+cp -vr single_dset ../pytorch-CycleGAN-and-pix2pix/datasets
 ```
 
 ### Attack:
 
-* basic attack
+* basic attack -- CycleGAN or pix2pix
 ```
-python attack.py --type [cyc|pix|pixhd]
+python attack_cyc.py --dataroot datasets/<single_dset|smilehq|...> --name smile --model <cycle_gan|pix2pix>
 ```
+* basic attack -- pix2pixHD
+```
+python attack_pixhd.py
+```
+
 * more attack templates:
 in `template` directory
 ```

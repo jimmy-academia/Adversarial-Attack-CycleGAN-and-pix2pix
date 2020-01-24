@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wget https://github.com/jimmy-academia/downloadable/releases/download/weight.cyc-pix/pre.tar.gz
-wget https://github.com/jimmy-academia/downloadable/releases/download/weight.cyc-pix/prehd.tar.gz
+wget -c --tries=0 --read-timeout=20 https://github.com/jimmy-academia/downloadable/releases/download/weight.cyc-pix/pre.tar.gz
+wget -c --tries=0 --read-timeout=20  https://github.com/jimmy-academia/downloadable/releases/download/weight.cyc-pix/prehd.tar.gz
 
 tar -xzvf pre.tar.gz    # pretrained_weights/ smile blond bald glass pix_black_masked pix_masked_black
 tar -xzvf prehd.tar.gz  # prehd/ black_masked masked_blond 
