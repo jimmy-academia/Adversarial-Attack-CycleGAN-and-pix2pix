@@ -82,7 +82,7 @@ cp -vr single_dset ../pytorch-CycleGAN-and-pix2pix/datasets
 
 * basic attack -- CycleGAN or pix2pix
 ```
-python attack_cyc.py --dataroot datasets/<single_dset|smilehq|...> --name smile --model <cycle_gan|pix2pix>
+python <attack_cyc.py|attack_pix.py> --dataroot datasets/<single_dset|smilehq|...> --name smile --model <cycle_gan|pix2pix>
 ```
 * basic attack -- pix2pixHD
 ```
