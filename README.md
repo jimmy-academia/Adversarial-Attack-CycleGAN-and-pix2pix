@@ -24,16 +24,16 @@ for CycleGAN or pix2pix:
 ```
 git clone https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
 cd Adversarial-Attack-CycleGAN-and-pix2pix
-cp -v attack.py vesaryfunc.py ../pytorch-CycleGAN-and-pix2pix
+cp -v attack_cyc_pix.py adversaryfunc.py ../pytorch-CycleGAN-and-pix2pix
 ```
 or for pix2pixHD
 ```
 git clone https://github.com/NVIDIA/pix2pixHD.git
 cd Adversarial-Attack-CycleGAN-and-pix2pix
-cp -v attack.py vesaryfunc.py ../pix2pixHD
+cp -v attack_pixhd.py adversaryfunc.py ../pix2pixHD
 ```
 
-### Prepare Your Own Model:
+### Model Setup -- Prepare Your Own Model:
 
 * download and prepare the CelebaHQ and mask datasets
 ```
@@ -62,7 +62,7 @@ python train.py --dataroot datasets/black_masked --name black_masked --resize_or
 python train.py --dataroot datasets/masked_blond --name masked_blond --resize_or_crop scale_width_and_crop --loadSize 572 --fineSize 512 --label_nc 0 --no_instance 
 ```
 
-### Use Pretrained Weights
+### Model Setup -- Use Pretrained Weights
 
 * Alternatively, you can use pretrained weights by:
 ```
@@ -76,7 +76,14 @@ mv weights/smile ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 
 ### Attack:
 
+* basic attack
+```
 python attack.py --type [cyc|pix|pixhd]
-
+```
+* more attack templates:
+in `template` directory
+```
+a for ...
+```
 
 
