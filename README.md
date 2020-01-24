@@ -18,7 +18,7 @@ This work uses CelebA-HQ and CelebAMask-HQ. The datasets can be found in this [g
 ```
 git clone https://github.com/jimmy-academia/Adversarial-Attack-CycleGAN-and-pix2pix.git
 ```
-* clone the CycleGAN-pix2pix or pix2pixHD repo and move the corresponding files to the correct place.
+* clone the CycleGAN-pix2pix or pix2pixHD repo and copy the corresponding files to the correct place.
 
 for CycleGAN or pix2pix:
 ```
@@ -40,11 +40,11 @@ cp -v attack_pixhd.py adversaryfunc.py ../pix2pixHD
 bash scripts/download_dataset.sh
 python scripts/prepare_dataset.py --imagesize [default: 256] --datatype [default: Smile | Blond | Bald | Glass | Blond-pix | Blond-HD | Custom ]
 ```
-* than move resulting dataset to the correct location, ex:
+* than move resulting new directory to the correct location, ex:
 ```
 mv smilehq ../pytorch-CycleGAN-and-pix2pix/datasets
 ```
-> refer to [customizations](docs/customize.md) for preparation details.
+> refer to [customizations](docs/customize.md) for dataset preparation details.
 
 * train the model with original CycleGAN-pix2pix or pix2pixHD repository:
 ```
@@ -68,10 +68,14 @@ python train.py --dataroot datasets/masked_blond --name masked_blond --resize_or
 ```
 bash script/download_weights.sh
 ```
-* then move the corresponding folders to the correct location, e.g.:
+* then move the corresponding folders to the correct location, ex:
 ```
 mkdir -p ../pytorch-CycleGAN-and-pix2pix/checkpoints/
 mv weights/smile ../pytorch-CycleGAN-and-pix2pix/checkpoints/
+```
+* also copy the running example image if you didn't download the dataset, ex:
+```
+cp -v running_example.png ../pytorch-CycleGAN-and-pix2pix
 ```
 
 ### Attack:
