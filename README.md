@@ -1,5 +1,5 @@
 # Adversarial-Attack-CycleGAN-and-pix2pix
-Generating Adversarial Images for Image-to-Image models in Pytorch, code implementations for ["Disrupting Image-Translation-Based DeepFake Algorithms with Adversarial Attacks,"](doc/camera_ready.pdf) paper accepted to WACV DeepPAB workshop.
+Generating Adversarial Images for Image-to-Image models in Pytorch, code implementations for ["Disrupting Image-Translation-Based DeepFake Algorithms with Adversarial Attacks,"](docs/camera_ready.pdf) paper accepted to WACV DeepPAB workshop.
 
 We provide PyTorch implementations for adversarially attacking CycleGAN, pix2pix and pix2pixHD models.
 
