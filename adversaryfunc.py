@@ -5,6 +5,7 @@ from tqdm import tqdm
 def perturb(data, model, Dloss, suffix=None, eps=0.2, alpha=0.005, verbose=1, modeltype='cyc', init_noise=True):
 
     pdata = {}
+    xstr = lambda s: ''.join(str(s).split('.'))
 
     if not (Dloss == 'Nullifying' and not init_noise):
         init_noise = eps    
@@ -18,8 +19,6 @@ def perturb(data, model, Dloss, suffix=None, eps=0.2, alpha=0.005, verbose=1, mo
             pdata[char+'_paths'] = [data[char+'_paths'][0].split('.jpg')[0]+'%s.jpg'%suf]
 
     else:
-        xstr = lambda s: ''.join(str(s).split('.'))
-
         G1 = getattr(model[0], 'netG')
         G2 = getattr(model[1], 'netG')
         G = lambda x: G2(G1(x))

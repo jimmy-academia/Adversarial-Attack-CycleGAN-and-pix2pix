@@ -1,5 +1,5 @@
 # Adversarial-Attack-CycleGAN-and-pix2pix
-Generating Adversarial Images for Image-to-Image models in Pytorch
+Generating Adversarial Images for Image-to-Image models in Pytorch, code implementations for "Disrupting Image-Translation-Based DeepFake Algorithms with Adversarial Attacks," paper accepted to WACV DeepPAB workshop. [camera_ready version](doc/camera_ready.pdf)
 
 We provide PyTorch implementations for adversarially attacking CycleGAN, pix2pix and pix2pixHD models.
 
@@ -80,9 +80,13 @@ cp -vr single_dset ../pytorch-CycleGAN-and-pix2pix/datasets
 
 ### Attack:
 
-* basic attack -- CycleGAN or pix2pix
+* basic attack -- CycleGAN
 ```
-python <attack_cyc.py|attack_pix.py> --dataroot datasets/<single_dset|smilehq|...> --name smile --model <cycle_gan|pix2pix>
+python attack_cyc.py --dataroot datasets/<single_dset|smilehq|...> --name smile
+```
+* basic attack -- pix2pix
+```
+python attack_pix.py --dataroot datasets/<single_dset|smilehq|...>
 ```
 * basic attack -- pix2pixHD
 ```

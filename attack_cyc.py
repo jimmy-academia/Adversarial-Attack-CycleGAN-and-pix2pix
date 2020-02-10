@@ -1,3 +1,12 @@
+'''
+script for adversarial attacking CycleGAN model
+use this in a "pytorch-CycleGAN-and-pix2pix" repository 
+(https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
+
+example usage: 
+    python attack_cyc.py --dataroot datasets/single_dset --name smile
+'''
+
 import os
 from options.test_options import TestOptions
 from data import create_dataset
@@ -5,7 +14,6 @@ from models import create_model
 from util.visualizer import save_images
 from util import html
 
-print('testrunn attack!')
 from adversaryfunc import perturb
 
 if __name__ == '__main__':
@@ -16,12 +24,14 @@ if __name__ == '__main__':
     opt.no_flip = True    
     opt.display_id = -1   
     dataset = create_dataset(opt)  
+
+    opt.model = 'cyclegan'
     model = create_model(opt)     
     model.setup(opt)               
     model.eval()
 
     # The directory for saving results
-    web_dir = os.path.join(opt.results_dir, 'attack_cyc')  
+    web_dir = os.path.join(opt.results_dir, 'attack_cyc') # results/attack_cyc
     print('saving in directory', web_dir)
     
     webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch))
